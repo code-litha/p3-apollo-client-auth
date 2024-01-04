@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Product Name 1",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 2,
+    "name": "Product Name 2",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 3,
+    "name": "Product Name 3",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 4,
+    "name": "Product Name 4",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 5,
+    "name": "Product Name 5",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 6,
+    "name": "Product Name 6",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 7,
+    "name": "Product Name 7",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 8,
+    "name": "Product Name 8",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 9,
+    "name": "Product Name 9",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 10,
+    "name": "Product Name 10",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 11,
+    "name": "Product Name 11",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  },
+  {
+    "id": 12,
+    "name": "Product Name 12",
+    "price": 100000,
+    "stock": 10,
+    "imgUrl": "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/468546/item/idgoods_30_468546.jpg",
+    "likes": []
+  }
+]
