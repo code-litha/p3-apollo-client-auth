@@ -9,21 +9,37 @@ import {
   View,
 } from "react-native";
 import { globalStyle, utilities } from "../constant/utilities";
-import dataProducts from "../data/products.json";
+// import dataProducts from "../data/products.json";
 import { renderPrice } from "../utils/renderPrice";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useContext } from "react";
+import { LoginContext } from "../context/LoginContext";
+import { gql, useQuery } from "@apollo/client";
+import { GET_PRODUCTS } from "../config/queries";
 
 const { height } = Dimensions.get("screen");
 
 export default function ProductListScreen({ navigation }) {
+  const { data, loading, error } = useQuery(GET_PRODUCTS);
+
+  const { deleteTokenLogin } = useContext(LoginContext);
   const onPressItem = (item) => {
     console.log(item);
-    navigation.navigate("ProductDetail", { id: item.id });
+    navigation.navigate("ProductDetail", { id: item._id });
   };
 
-  const logout = () => {
-    navigation.replace("Login");
+  const logout = async () => {
+    await deleteTokenLogin();
+    // navigation.replace("Login");
   };
+
+  console.log({
+    data,
+    loading,
+    error,
+  });
+
+  const dataProducts = data?.products?.data || [];
 
   return (
     <View style={styles.container}>
@@ -105,7 +121,7 @@ export default function ProductListScreen({ navigation }) {
               </View>
             );
           }}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item._id}
           numColumns={2}
         />
       </View>

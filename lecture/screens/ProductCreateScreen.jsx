@@ -8,6 +8,8 @@ import {
 import { globalStyle, utilities } from "../constant/utilities";
 import { useState } from "react";
 import ErrorText from "../components/ErrorText";
+import { gql, useMutation } from "@apollo/client";
+import { GET_PRODUCTS, PRODUCT_CREATE } from "../config/queries";
 
 export default function ProductCreateScreen({ navigation }) {
   const [form, setForm] = useState({
@@ -15,6 +17,12 @@ export default function ProductCreateScreen({ navigation }) {
     stock: "",
     price: "",
     imgUrl: "",
+  });
+  const [onAddProduct, { data, loading, error }] = useMutation(PRODUCT_CREATE, {
+    onCompleted: () => {
+      navigation.navigate("Home");
+    },
+    refetchQueries: [GET_PRODUCTS],
   });
 
   const onChangeForm = (key, value) => {
@@ -24,10 +32,23 @@ export default function ProductCreateScreen({ navigation }) {
     });
   };
 
-  const onCreate = () => {
-    const payload = { ...form };
-    console.log(payload, "<<< payload create");
-    navigation.navigate("Home");
+  const onCreate = async () => {
+    try {
+      const payload = {
+        ...form,
+        stock: Number(form.stock),
+        price: Number(form.price),
+      };
+      console.log(payload, "<<< payload create");
+      // navigation.navigate("Home");
+      await onAddProduct({
+        variables: {
+          input: payload,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -68,7 +89,7 @@ export default function ProductCreateScreen({ navigation }) {
         onChangeText={(text) => onChangeForm("imgUrl", text)}
       />
 
-      <ErrorText error={null} />
+      <ErrorText error={error} />
       <View style={{ alignItems: "center", marginTop: 20 }}>
         <TouchableOpacity
           style={[globalStyle.primaryButton, { width: "80%" }]}

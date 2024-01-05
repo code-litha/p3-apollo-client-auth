@@ -11,22 +11,55 @@ import dataProducts from "../data/products.json";
 import { AntDesign } from "@expo/vector-icons";
 import { globalStyle, utilities } from "../constant/utilities";
 import { renderPrice } from "../utils/renderPrice";
+import { gql, useQuery } from "@apollo/client";
 
+const GET_PRODUCT = gql`
+  query Product($productId: ID!) {
+    product(id: $productId) {
+      _id
+      name
+      stock
+      price
+      imgUrl
+      authorId
+      likes {
+        userId
+        username
+      }
+    }
+  }
+`;
 export default function ProductDetailScreen({ navigation, route }) {
   const { id } = route.params;
-  const [product, setProducts] = useState({});
+  console.log(id, "<<< id");
+  const { data, loading, error } = useQuery(GET_PRODUCT, {
+    variables: {
+      productId: id,
+    },
+  });
+  const [product, setProduct] = useState({});
   const [isLike, setIsLike] = useState(false);
 
+  // useEffect(() => {
+  //   const findProduct = dataProducts.find((val) => val.id == id);
+  //   setProduct(findProduct || {});
+  // }, [id]);
+
   useEffect(() => {
-    const findProduct = dataProducts.find((val) => val.id == id);
-    setProducts(findProduct || {});
-  }, [id]);
+    setProduct(data?.product || {});
+  }, [data]);
 
   const onLike = () => {
     setIsLike(!isLike);
   };
 
   const goHome = () => navigation.navigate("Home");
+
+  console.log({
+    data,
+    loading,
+    error,
+  });
 
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
